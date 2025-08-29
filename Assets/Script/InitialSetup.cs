@@ -28,11 +28,6 @@ public class InitialSetup : MonoBehaviour
         startExperienceUI.SetActive(false);
         planeManager.enabled = false;
 
-        foreach (var plane in planeManager.trackables)
-        {
-            plane.gameObject.SetActive(false);
-        }
-
         startExperience.OnStartExperience(GetBiggestPlane());
     }
 
