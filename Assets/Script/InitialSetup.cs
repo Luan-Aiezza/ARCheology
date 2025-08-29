@@ -9,15 +9,16 @@ public class InitialSetup : MonoBehaviour
     [SerializeField] private float requiredArea;
     [SerializeField] private ARPlaneManager planeManager;
     [SerializeField] private GameObject startExperienceUI;
+    [SerializeField] private StartExperience startExperience;
 
     void OnEnable()
     {
-        planeManager.planesChanged += OnPlanesUpdated;  
+        planeManager.planesChanged += OnPlanesUpdated;
     }
 
     void OnDisable()
     {
-        planeManager.planesChanged -= OnPlanesUpdated;  
+        planeManager.planesChanged -= OnPlanesUpdated;
     }
 
 
@@ -31,18 +32,38 @@ public class InitialSetup : MonoBehaviour
         {
             plane.gameObject.SetActive(false);
         }
+
+        startExperience.OnStartExperience(GetBiggestPlane());
     }
 
     private void OnPlanesUpdated(ARPlanesChangedEventArgs args)
     {
-       foreach (var plane in args.updated)
-       {
-           if (plane.extents.x * plane.extents.y >= requiredArea)
+        foreach (var plane in args.updated)
+        {
+            if (plane.extents.x * plane.extents.y >= requiredArea)
             {
                 // Encontrei um plano
                 startExperienceUI.SetActive(true);
             }
-       }
+        }
+    }
+    
+    private ARPlane GetBiggestPlane()
+    {
+        ARPlane biggestPlane = null;
+        float biggestArea = 0f;
+
+        foreach (var plane in planeManager.trackables)
+        {
+            float area = plane.extents.x * plane.extents.y;
+            if (area > biggestArea)
+            {
+                biggestArea = area;
+                biggestPlane = plane;
+            }
+        }
+
+        return biggestPlane;
     }
 
 
