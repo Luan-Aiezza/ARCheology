@@ -36,6 +36,17 @@ public class HoldingManager : MonoBehaviour
 
     // Pick up
 
+    public bool TryPickUp(GameObject obj)
+    {
+        if (heldObject == null)
+        {
+            PickUp(obj);
+            return true;
+        }
+
+        return false;
+    }
+
     public void PickUp(GameObject obj)
     {
         if (heldObject == null)

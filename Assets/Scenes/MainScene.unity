@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 489419628}
-  holdDistance: 0.5
+  holdDistance: 1.2
   speed: 10
 --- !u!4 &127349607
 Transform:
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09ed65f7f85d42f9b9592916af70da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 1581484847293058685, guid: f6c3da910866940a89676e6e30584e6e, type: 3}
+  cube: {fileID: 7582399945090304990, guid: 800535adaa9ed44ce885abb774a10438, type: 3}
 --- !u!4 &503217386
 Transform:
   m_ObjectHideFlags: 0
