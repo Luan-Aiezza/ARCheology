@@ -53,6 +53,8 @@ public class HoldingManager : MonoBehaviour
         {
             heldObject = obj;
 
+            obj.transform.SetParent(null);
+
             var body = heldObject.GetComponent<Rigidbody>();
             if (body != null)
             {
