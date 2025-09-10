@@ -6,6 +6,14 @@ public class ScannerController : MonoBehaviour
 {
 
     [SerializeField] private SpotController spot;
+    [SerializeField] private float scamDuration = 3f;
+
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();  
+    }
 
     void OnCollisionEnter(Collision collision)
     {
@@ -14,7 +22,7 @@ public class ScannerController : MonoBehaviour
             TryToPutOnSpot(collision.gameObject);
         }
     }
-    
+
     private void TryToPutOnSpot(GameObject obj)
     {
         if (!spot.IsOccupied())
@@ -27,7 +35,21 @@ public class ScannerController : MonoBehaviour
             {
                 rb.isKinematic = true;
             }
+
+            StartCoroutine(StartScanning());
         }
+    }
+
+    private IEnumerator StartScanning()
+    {
+        Debug.Log("Starting scan...");
+
+        animator.SetBool("isScanning", true);
+
+        yield return new WaitForSeconds(scamDuration);
+        Debug.Log("Scan complete!");
+
+        animator.SetBool("isScanning", false);
     }
 
 }
