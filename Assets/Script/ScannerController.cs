@@ -7,6 +7,7 @@ public class ScannerController : MonoBehaviour
 
     [SerializeField] private SpotController spot;
     [SerializeField] private float scamDuration = 3f;
+    [SerializeField] GameObject scamUI;
 
     private Animator animator;
 
@@ -46,10 +47,14 @@ public class ScannerController : MonoBehaviour
 
         animator.SetBool("isScanning", true);
 
+        scamUI.SetActive(false);
+
         yield return new WaitForSeconds(scamDuration);
         Debug.Log("Scan complete!");
 
         animator.SetBool("isScanning", false);
+
+        scamUI.SetActive(true);
     }
 
 }
