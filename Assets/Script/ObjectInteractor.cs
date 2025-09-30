@@ -5,6 +5,8 @@ using UnityEngine;
 public class ObjectInteractor : MonoBehaviour, IInteractable
 {
     private bool isHeld = false;
+    private bool isLocked = false;
+    private bool isScanned = false;
 
     [SerializeField] private SOObjectInfo objectInfo;
     [SerializeField] private float infoDisplayHeight = 2f;
@@ -12,6 +14,8 @@ public class ObjectInteractor : MonoBehaviour, IInteractable
     public void OnInteract()
     {
         Debug.Log("Interagindo com o cubo!");
+
+        if (isLocked) return;
 
         if (HoldingManager.Instance.TryPickUp(gameObject))
         {
@@ -46,7 +50,7 @@ public class ObjectInteractor : MonoBehaviour, IInteractable
 
     private void ShowObjectInfo()
     {
-        if (objectInfo == null) return;
+        if (objectInfo == null || isScanned == false) return;
 
         var infoController = FindObjectOfType<ObjectInfoController>();
 
@@ -69,6 +73,16 @@ public class ObjectInteractor : MonoBehaviour, IInteractable
             infoController.SetVisible(false);
             infoController.transform.SetParent(null);
         }
+    }
+
+    public void SetLocked(bool locked = true)
+    {
+        isLocked = locked;
+    }
+
+    public void SetScanned(bool scanned = true)
+    {
+        isScanned = scanned;
     }
 }
 

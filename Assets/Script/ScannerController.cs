@@ -37,11 +37,16 @@ public class ScannerController : MonoBehaviour
                 rb.isKinematic = true;
             }
 
-            StartCoroutine(StartScanning());
+            if (obj.TryGetComponent(out ObjectInteractor interactor))
+            {
+                StartCoroutine(StartScanning(interactor));
+            }
+
+            
         }
     }
 
-    private IEnumerator StartScanning()
+    private IEnumerator StartScanning(ObjectInteractor interactor)
     {
         Debug.Log("Starting scan...");
 
@@ -49,12 +54,17 @@ public class ScannerController : MonoBehaviour
 
         scamUI.SetActive(false);
 
+        interactor.SetLocked(true);
+
         yield return new WaitForSeconds(scamDuration);
         Debug.Log("Scan complete!");
 
         animator.SetBool("isScanning", false);
 
         scamUI.SetActive(true);
+
+        interactor.SetLocked(false);
+        interactor.SetScanned(true);
     }
 
 }
