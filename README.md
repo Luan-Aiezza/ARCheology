@@ -37,3 +37,7 @@ O projeto está organizado em scripts C# que controlam a lógica de interação 
 3. Conecte um dispositivo compatível com AR (Android/iOS) e faça o build.
 4. Siga as instruções na tela para iniciar a experiência AR.
 
+## Screenshots
+
+<img width="948" height="451" alt="Captura de Tela 2026-01-10 às 01 07 53" src="https://github.com/user-attachments/assets/8b822dc7-7493-45b5-950e-6783931b9037" />
+
