@@ -1,6 +1,6 @@
-# ARcheology
+# ARCheology
 
-ARcheology is an Augmented Reality (AR) project built with Unity that delivers an interactive, educational archaeology experience. Using AR Foundation, players detect a real-world surface, spawn a virtual scene on it, pick up artefacts, scan them to unlock their information and store them in virtual cabinets. It was built as part of the **AR development track at Instituto de Pesquisa Eldorado, at NexVisual**. The original creator of the project is **Victor Vasconcelos**; this repository is a mirror of the project Luan built during the track.
+ARCheology is an Augmented Reality (AR) project built with Unity that delivers an interactive, educational archaeology experience. Using AR Foundation, players detect a real-world surface, spawn a virtual scene on it, pick up artefacts, scan them to unlock their information and store them in virtual cabinets. It was built as part of the **AR development track at Instituto de Pesquisa Eldorado, at NexVisual**. The original creator of the project is **Victor Vasconcelos**; this repository is a mirror of the project Luan built during the track.
 
 ## Features
 
@@ -53,7 +53,7 @@ Main scripts in `Assets/Script/`:
 
 Requirements: Unity 2022.3.62f1 (Android and/or iOS build support) and an AR-capable Android or iOS device. The project is configured for Android minimum SDK 30 and iOS 12.0.
 
-1. Clone the repository: `git clone https://github.com/Luan-Aiezza/ARcheology.git`
+1. Clone the repository: `git clone https://github.com/Luan-Aiezza/ARCheology.git`
 2. Open the folder in Unity Hub with Unity 2022.3.62f1 and let the packages resolve.
 3. Open `Assets/Scenes/MainScene.unity`.
 4. In Build Settings, switch the platform to Android or iOS and enable the matching XR plug-in (ARCore or ARKit) in XR Plug-in Management if needed.
@@ -61,7 +61,7 @@ Requirements: Unity 2022.3.62f1 (Android and/or iOS build support) and an AR-cap
 
 ## Screenshots
 
-<img width="948" height="451" alt="ARcheology screenshot" src="https://github.com/user-attachments/assets/8b822dc7-7493-45b5-950e-6783931b9037" />
+<img width="948" height="451" alt="ARCheology screenshot" src="https://github.com/user-attachments/assets/8b822dc7-7493-45b5-950e-6783931b9037" />
 
 ## Team
 
